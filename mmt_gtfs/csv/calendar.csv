@@ -1,0 +1,22 @@
+service_id,service_name,monday,tuesday,wednesday,thursday,friday,saturday,sunday,start_date,end_date
+105_HSA,Holiday Saturday,0,0,0,0,0,0,0,20230611,20230819
+105_HSA:M,Holiday Saturday Recess Weekday Modified,0,0,0,0,0,0,0,20230611,20230819
+105_HSU,Holiday Sunday,0,0,0,0,0,0,0,20230611,20230819
+105_HSU:M,Holiday Sunday Recess Weekday Modified,0,0,0,0,0,0,0,20230611,20230819
+105_HSU:W,Holiday Sunday Recess Weekend,0,0,0,0,0,0,0,20230611,20230819
+105_SAT,Saturday,0,0,0,0,0,1,0,20230611,20230819
+105_SAT:L,Latenight Saturday,0,0,0,0,0,0,0,20230611,20230819
+105_SAT:R,Recess Saturday,0,0,0,0,0,1,0,20230611,20230819
+105_SAT:S,Standard Saturday,0,0,0,0,0,0,0,20230611,20230819
+105_SUN,Sunday,0,0,0,0,0,0,1,20230611,20230819
+105_SUN:L,Latenight Sunday,0,0,0,0,0,0,0,20230611,20230819
+105_SUN:R,Recess Sunday,0,0,0,0,0,0,1,20230611,20230819
+105_SUN:S,Standard Sunday,0,0,0,0,0,0,0,20230611,20230819
+105_WKD,Weekday,1,1,1,1,1,0,0,20230611,20230819
+105_WKD:L#6,Latenight Mon-Thu,0,0,0,0,0,0,0,20230611,20230819
+105_WKD:L=6,Latenight Fri only,0,0,0,0,0,0,0,20230611,20230819
+105_WKD:R,Recess Weekday,1,1,1,1,1,0,0,20230611,20230819
+105_WKD:X,Extended Recess Weekday,1,1,1,1,1,0,0,20230611,20230819
+105_WKD:S,Standard Weekday,0,0,0,0,0,0,0,20230611,20230819
+105_WKD:S#6,Standard Mon-Thu,0,0,0,0,0,0,0,20230611,20230819
+105_WKD:S=6,Standard Fri only,0,0,0,0,0,0,0,20230611,20230819

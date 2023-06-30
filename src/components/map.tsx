@@ -1,10 +1,28 @@
 
 import {MapContainer, TileLayer, LayerGroup, Polyline, Marker, Popup} from "react-leaflet";
 import Leaflet from 'leaflet';
-import {useEffect, useState} from "react";
+import {useEffect, useState, FC} from "react";
 import {LatLngExpression} from "leaflet";
 import styles from "@/app/page.module.css";
 import leafletIcon from "@/public/images/signpost-split-fill.svg";
+
+interface StopPopupProps {
+    stop_id: number
+}
+
+const BusPopup: FC<StopPopupProps> = ({stop_id}) => {
+
+    useEffect(() => {
+
+    }, [])
+
+    return (
+        <Popup>
+            {}
+        </Popup>
+    )
+}
+
 
 interface ShapeGroups {
     [index: string]: LatLngExpression[]

@@ -4,3 +4,4 @@
 
 http://transitdata.cityofmadison.com/GTFS/
 
+https://developers.google.com/transit/gtfs/reference/

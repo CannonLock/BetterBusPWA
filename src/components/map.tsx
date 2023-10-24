@@ -3,7 +3,7 @@ import {MapContainer, TileLayer, LayerGroup, Polyline, Marker, Popup} from "reac
 import Leaflet from 'leaflet';
 import {useEffect, useState, FC} from "react";
 import {LatLngExpression} from "leaflet";
-import styles from "@/app/page.module.css";
+import styles from "@/src/app/page.module.css";
 import leafletIcon from "@/public/images/signpost-split-fill.svg";
 
 interface StopPopupProps {

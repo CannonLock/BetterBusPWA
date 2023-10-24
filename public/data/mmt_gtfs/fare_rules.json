@@ -1,0 +1,98 @@
+[
+  {
+    "route_id": 10465,
+    "fare_id": "c"
+  },
+  {
+    "route_id": 10466,
+    "fare_id": "c"
+  },
+  {
+    "route_id": 10467,
+    "fare_id": "c"
+  },
+  {
+    "route_id": 10468,
+    "fare_id": "c"
+  },
+  {
+    "route_id": 10469,
+    "fare_id": "c"
+  },
+  {
+    "route_id": 10470,
+    "fare_id": "c"
+  },
+  {
+    "route_id": 10471,
+    "fare_id": "c"
+  },
+  {
+    "route_id": 10472,
+    "fare_id": "c"
+  },
+  {
+    "route_id": 10473,
+    "fare_id": "c"
+  },
+  {
+    "route_id": 10474,
+    "fare_id": "c"
+  },
+  {
+    "route_id": 10475,
+    "fare_id": "c"
+  },
+  {
+    "route_id": 10476,
+    "fare_id": "c"
+  },
+  {
+    "route_id": 10477,
+    "fare_id": "c"
+  },
+  {
+    "route_id": 10478,
+    "fare_id": "c"
+  },
+  {
+    "route_id": 10479,
+    "fare_id": "c"
+  },
+  {
+    "route_id": 10480,
+    "fare_id": "c"
+  },
+  {
+    "route_id": 10481,
+    "fare_id": "c"
+  },
+  {
+    "route_id": 10482,
+    "fare_id": "c"
+  },
+  {
+    "route_id": 10483,
+    "fare_id": "c"
+  },
+  {
+    "route_id": 10484,
+    "fare_id": "c"
+  },
+  {
+    "route_id": 10460,
+    "fare_id": "f"
+  },
+  {
+    "route_id": 10461,
+    "fare_id": "f"
+  },
+  {
+    "route_id": 10462,
+    "fare_id": "f"
+  },
+  {
+    "route_id": 10463,
+    "fare_id": "f"
+  }
+]

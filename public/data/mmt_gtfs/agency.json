@@ -1,0 +1,13 @@
+[
+  {
+    "agency_id": "MMT",
+    "agency_name": "Metro Transit-City of Madison",
+    "agency_url": "http:\/\/www.mymetrobus.com\/",
+    "agency_timezone": "America\/Chicago",
+    "agency_lang": "en",
+    "agency_phone": "608-266-4466",
+    "agency_fare_url": "http:\/\/www.cityofmadison.com\/metro\/fares\/",
+    "agency_email": "mymetrobus@cityofmadison.com",
+    "bike_policy_url": "http:\/\/www.cityofmadison.com\/metro\/how-to-ride\/bike-racks\/"
+  }
+]

@@ -1,7 +1,10 @@
 import './globals.css'
 import { Inter } from 'next/font/google'
+import {Grid, Box} from "@mui/material";
+import Sidebar from "@/src/components/layout/sidebar";
 
 const inter = Inter({ subsets: ['latin'] })
+import {ThemeProviderClient} from "@/src/components/layout/theme";
 
 export const metadata = {
   title: 'Create Next App',
@@ -15,7 +18,18 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body className={inter.className}>{children}</body>
+      <body className={inter.className}>
+          <ThemeProviderClient>
+            <Box display={"flex"} flexDirection={"row"}>
+              <Box>
+                <Sidebar/>
+              </Box>
+              <Box>
+                {children}
+              </Box>
+            </Box>
+          </ThemeProviderClient>
+      </body>
     </html>
   )
 }

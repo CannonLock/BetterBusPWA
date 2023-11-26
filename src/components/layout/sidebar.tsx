@@ -1,12 +1,8 @@
+'use client'
+
 import DirectionsBusIcon from '@mui/icons-material/DirectionsBus';
-import Map from '@mui/icons-material/Map';
-import {stringToColor} from "@/src/helpers/util";
-
-import { styled } from '@mui/material/styles';
-
-import routes from "@/public/data/mmt_gtfs/routes.json"
-import Button, { ButtonProps } from '@mui/material/Button';
 import {Box, IconButton} from "@mui/material"
+import React, {ReactElement} from "react";
 
 interface IconDrawerProps {
     children: React.ReactNode
@@ -20,53 +16,53 @@ function IconDrawer({children}: IconDrawerProps){
     )
 }
 
-interface MapButtonProps {
-    route_short_name: string;
-    route_color: string;
-    route_text_color: string;
+
+
+interface SidebarDrawerProps {
+    icon: React.ReactNode;
+    children: React.ReactNode;
+    open?: boolean;
 }
 
-function MapButton({route_short_name, route_color, route_text_color}: MapButtonProps){
-
+export function SidebarDrawer({icon, children, open}: SidebarDrawerProps){
     return (
-        <ColorButton backgroundColor={route_color} color={route_text_color}>
-            <span color={stringToColor(route_text_color)}>{route_short_name}</span>
-        </ColorButton>
-    )
-}
-
-
-function MapDrawer(){
-
-    return (
-        <Box sx={{overflowY:"scroll", overflowX:"hidden"}}>
-            {routes.map((route) => {
-                    return (
-                        <MapButton key={route.route_short_name} route_short_name={route.route_short_name} route_color={route.route_color} route_text_color={route.route_text_color}></MapButton>
-                    )
-                })
-            }
+        <Box display={open ? "block" : "none"} p={1} overflow={"scroll"}>
+            {children}
         </Box>
     )
 }
 
+interface SidebarProps {
+    children: ReactElement<SidebarDrawerProps>[];
+}
 
+export default function Sidebar({children}: SidebarProps) {
 
-export default function Sidebar(){
+    children = React.Children.toArray(children) as ReactElement<SidebarDrawerProps>[];
 
-
+    const [openDrawer, setOpenDrawer] = React.useState<undefined | number>(undefined);
 
     return (
-        <Box display={"flex"} flexDirection={"row"} bgcolor={"primary.main"} p={1} borderRadius={1} mr={"-2px"} zIndex={999}>
+        <Box display={"flex"} height={"100vh"} flexDirection={"row"} bgcolor={"primary.main"} p={0} borderRadius={1} mr={"-2px"} zIndex={999}>
             <IconDrawer>
-                <DirectionsBusIcon></DirectionsBusIcon>
-                <IconButton>
-                    <Map></Map>
-                </IconButton>
+                <Box p={1}>
+                    <DirectionsBusIcon sx={{color: "black"}}></DirectionsBusIcon>
+                </Box>
+                {children.map((child, index) => {
+                    return (
+                        <IconButton key={index} onClick={() => {
+                            setOpenDrawer(index == openDrawer ? undefined : index)
+                        }}>
+                            {child.props.icon}
+                        </IconButton>
+                    )
+                })}
             </IconDrawer>
-            <Box>
-                <MapDrawer></MapDrawer>
-            </Box>
+            <>
+                {children.map((child, index) => {
+                    return React.cloneElement(child, { key: index, open: index === openDrawer})
+                })}
+            </>
         </Box>
     )
 }

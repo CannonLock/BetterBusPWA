@@ -20,14 +20,7 @@ export default function RootLayout({
     <html lang="en">
       <body className={inter.className}>
           <ThemeProviderClient>
-            <Box display={"flex"} flexDirection={"row"}>
-              <Box>
-                <Sidebar/>
-              </Box>
-              <Box>
-                {children}
-              </Box>
-            </Box>
+              {children}
           </ThemeProviderClient>
       </body>
     </html>

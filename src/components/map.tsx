@@ -1,7 +1,8 @@
+'use client'
 
 import {MapContainer, TileLayer, LayerGroup, Polyline, Marker, Popup} from "react-leaflet";
 import Leaflet from 'leaflet';
-import {useEffect, useState, FC} from "react";
+import {useEffect, useState, FC, useMemo} from "react";
 import {LatLngExpression} from "leaflet";
 import styles from "@/src/app/page.module.css";
 import leafletIcon from "@/public/images/signpost-split-fill.svg";
@@ -28,11 +29,19 @@ interface ShapeGroups {
     [index: string]: LatLngExpression[]
 }
 
-const Map = () => {
+interface MapProps {
+    route: number
+}
+
+const Map = ({route}: MapProps) => {
 
     let [shapes, setShapes] = useState<ShapeGroups>({});
     let [stops, setStops] = useState([]);
+    let [trips, setTrips] = useState([]);
+
     useEffect(() => {
+
+        console.log("I mounted")
         let getShapes = async () => {
 
             interface Shape {
@@ -64,13 +73,22 @@ const Map = () => {
             let data = await response.json()
 
             setStops(data)
-            console.log(data)
         }
+
+        let getTrips = async () => {
+            let response = await fetch("/data/mmt_gtfs/trips.json")
+            let data = await response.json()
+
+            setTrips(data)
+        }
+
         getShapes()
         getStops()
+        getTrips()
     }, [])
 
-    console.log()
+    const routeTrips = useMemo(() => trips.filter(trip => trip['route_id'] == route), [trips, route])
+    const routeShapes = useMemo(() => [...new Set(Object.entries(routeTrips).map(([key, trip]) => shapes[trip.shape_id]))], [routeTrips, shapes])
 
     return (
         <MapContainer className={styles.map} center={[43.074652337832255, -89.3842493815019]} zoom={13} scrollWheelZoom={true}>
@@ -78,19 +96,19 @@ const Map = () => {
                 url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
             />
             <LayerGroup>
-                {Object.entries(shapes).map(([key, latlon]) => <Polyline key={key} positions={latlon}></Polyline>)}
+                {routeShapes.map((latlng, index) => <Polyline key={index} positions={latlng}></Polyline>)}
             </LayerGroup>
-            <LayerGroup>
-                {stops.map(stop => {
-                    return (
-                        <Marker icon={Leaflet.icon({iconUrl: leafletIcon.src})} key={stop['stop_id']} position={[stop['stop_lat'], stop['stop_lon']]}>
-                            <Popup>
-                                {JSON.stringify(stop)}
-                            </Popup>
-                        </Marker>
-                    )
-                })}
-            </LayerGroup>
+            {/*<LayerGroup>*/}
+            {/*    {stops.map(stop => {*/}
+            {/*        return (*/}
+            {/*            <Marker icon={Leaflet.icon({iconUrl: leafletIcon.src})} key={stop['stop_id']} position={[stop['stop_lat'], stop['stop_lon']]}>*/}
+            {/*                <Popup>*/}
+            {/*                    {JSON.stringify(stop)}*/}
+            {/*                </Popup>*/}
+            {/*            </Marker>*/}
+            {/*        )*/}
+            {/*    })}*/}
+            {/*</LayerGroup>*/}
         </MapContainer>
     )
 }

@@ -11,10 +11,10 @@ const poppins = Poppins({
 let theme = createTheme({
     palette: {
         primary: {
-            main: "#FFC107"
+            main: "#ffeec2"
         },
         secondary: {
-            main: "#673AB7"
+            main: "#e4d5ff"
         }
     },
     typography: {
